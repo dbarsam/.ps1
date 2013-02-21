@@ -32,11 +32,6 @@ function global:Append-Path([string] $path)
     }
 }
 
-function global:Export-Base64([string] $path)
-{
-    return [convert]::ToBase64String((get-content $path -encoding byte))
-}
-
 function global:Get-Path() 
 {
     return $ENV:PATH 
