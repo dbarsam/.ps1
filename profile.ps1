@@ -42,6 +42,11 @@ function global:Get-PathList()
     return $ENV:Path.Replace('"', '').Split(';') | Sort-Object -unique
 }
 
+function global:Get-Version([string] $file)
+{
+    (Get-Command $file).FileVersionInfo
+}
+
 function global:Start-Explorer([string] $loc = '.')
 {
     explorer "/e,"$loc"" 
