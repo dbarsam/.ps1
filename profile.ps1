@@ -19,7 +19,15 @@ $ModuleDir  = "$ProfileDir\modules"
 
 ## ===================================================================
 ## PS Drives
+if (!(Test-Path -Path $ScriptDir ))
+{
+    New-Item -ItemType Directory -Path $ScriptDir  | Out-Null
+}
 New-PSdrive -name Scripts -PSprovider filesystem -root $ScriptDir
+if (!(Test-Path -Path $ModuleDir ))
+{
+    New-Item -ItemType Directory -Path $ModuleDir | Out-Null
+}
 New-PSdrive -name Modules -PSprovider filesystem -root $ModuleDir
 
 ## ===================================================================
